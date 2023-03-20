@@ -1,0 +1,13 @@
+- hosts: jenkins
+  remote_user: artesan538
+  become: true
+  tags: docker
+  roles:
+    - geerlingguy.docker
+
+- hosts: jenkins    
+  remote_user: artesan538
+  become: true
+  tags: jenkins
+  roles:
+    - 'roles/jenkins'
