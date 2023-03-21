@@ -4,6 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         withDockerContainer("node:19.8") {
+            sh 'npm install'
             sh 'npm run build'
         }
       }
