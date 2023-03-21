@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Publish') {
       steps {
-        sh 'docker build -t gcr.io/prismatic-crow-350413/best-app:1.0.0'
+        sh 'docker build -t gcr.io/prismatic-crow-350413/best-app:1.0.0 .'
         sh 'docker push gcr.io/prismatic-crow-350413/best-app:1.0.0'
       }
     }
