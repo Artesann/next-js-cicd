@@ -1,6 +1,6 @@
 FROM node:19.8
 
-COPY --chown=node best-app /app
+COPY --chown=node . /app
 
 USER node
 
