@@ -4,7 +4,6 @@ pipeline {
     stage('Build') {
       steps {
         withDockerContainer("node:19.8") {
-            sh 'cd best-app'
             sh 'npm run build'
         }
       }
