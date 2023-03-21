@@ -11,3 +11,5 @@
   tags: jenkins
   roles:
     - 'roles/jenkins'
+  vars:
+    jenkins_image: gcr.io/prismatic-crow-350413/jenkins-docker:2.387.1

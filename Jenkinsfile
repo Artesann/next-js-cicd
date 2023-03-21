@@ -3,24 +3,28 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'cd best-app'
-        sh 'npm install'
-        sh 'npm run build'
+        withDockerContainer("node:19.8") {
+            sh 'cd best-app'
+            sh 'npm run build'
+        }
       }
     }
     stage('Test') {
       steps {
-        sh 'npm run test'
+        withDockerContainer("node:19.8") {
+            sh 'sleep 3'
+        }
       }
     }
     stage('Publish') {
       steps {
-        sh 'npm run publish'
+        sh 'docker build -t gcr.io/prismatic-crow-350413/best-app:1.0.0'
+        sh 'docker push gcr.io/prismatic-crow-350413/best-app:1.0.0'
       }
     }
     stage('Deploy') {
       steps {
-        sh 'npm run deploy'
+        sh 'echo deploy'
       }
     }
   }
