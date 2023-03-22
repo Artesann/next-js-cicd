@@ -18,14 +18,15 @@ pipeline {
     }
     stage('Publish') {
       steps {
-        sh 'docker build -t gcr.io/prismatic-crow-350413/best-app:1.0.0 .'
-        sh 'docker push gcr.io/prismatic-crow-350413/best-app:1.0.0'
+        sh "docker build -t gcr.io/prismatic-crow-350413/best-app:${params.image_tag} ."
+        sh "docker push gcr.io/prismatic-crow-350413/best-app:${params.image_tag}"
       }
     }
     stage('Deploy') {
       steps {
-        sh 'echo deploy'
-      }
-    }
+        sh "helm upgrade best-app best-app --install --set image.tag=${params.image_tag} kubernetes/best-app"
+      } 
+    } 
   }
 }
+
