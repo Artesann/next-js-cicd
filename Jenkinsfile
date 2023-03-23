@@ -27,7 +27,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh "helm upgrade best-app best-app --install --set image.tag=${params.image_tag} kubernetes/best-app"
+        sh "helm upgrade best-app --install --set image.tag=${params.image_tag} kubernetes/best-app"
       } 
     } 
   }
