@@ -6,3 +6,8 @@
 
 Что бы в ручную собрать образ нужно собрать проект `npm run build` и запустить сборку в дирректории с докер файлом `docker build -t best-app:1.0.0 .
 
+Запуск через docker compose: `docker compose up`
+
+Jenkinsfile для сборки в jenkins. Для сборки в Jenkins, в образе jenkins должны быть установлены kubectl, helm, docker. При падении сборки на любом этапе, будет отправляться событие в pagerduty.
+
+В дирректории kuberntes лежит helm чарт для деплоя в kubernetes.

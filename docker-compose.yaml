@@ -1,0 +1,5 @@
+services:
+  best-app:
+    image: gcr.io/prismatic-crow-350413/best-app:1.0.0
+    ports:
+      - "3000:3000"
